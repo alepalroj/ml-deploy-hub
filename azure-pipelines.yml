@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- checkout: self
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+  displayName: 'Python 3.x'
+
+- script: pip install requests
+  displayName: 'Instalar requests'
+
+- script: |
+    git fetch origin master
+    git checkout origin/master
+    python registry_pipeline.py
+  displayName: 'Ejecutando registry_pipeline.py'

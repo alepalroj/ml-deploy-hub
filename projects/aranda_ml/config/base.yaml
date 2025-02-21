@@ -1,0 +1,33 @@
+aranda:
+  model_params:
+    tol: 1e-6
+    seed: 123
+    layer: 100
+    last_run: -1
+    max_iter: 3
+    vocab_size: 5000
+    solver: "l-bfgs"
+    step_size: 0.01
+    first_element: 0
+    splits: [0.76, 0.24]
+  databricks:
+    databricks_uc: "databricks-uc"
+  dataset:
+    description: "Este conjunto de datos contiene información sobre incidentes de soporte, con campos como CategoryID_idx y su Description."
+  experiment:
+    name: "perceptron_classifier_experiment"
+  signature:
+    input_name:  "Descripcion"
+    output_name:  "CategoriaId"
+  environments:
+    save_local_dir: "/dbfs/FileStore/modelos"
+    develop:
+      catalog_name: "tmp_cat_dev"
+      schema_name: "aranda_ml"
+      table_name: "features"
+      model_name: "perceptron_classifier"
+    master:
+      catalog_name: "tmp_cat_dev"
+      schema_name: "aranda"
+      table_name: "features"
+      model_name: "perceptron_classifier"
