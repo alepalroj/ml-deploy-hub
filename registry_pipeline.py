@@ -3,7 +3,7 @@ import os
 import requests
 import json
 
-USER_MAIL = "apalacior@"
+USER_MAIL = "alepalroj@"
 DATABRICKS_HOST = "https://adb-x.x.azuredatabricks.net"
 DATABRICKS_TOKEN = "dapix-x" 
 HEADERS = {"Authorization": f"Bearer {DATABRICKS_TOKEN}", "Content-Type": "application/json"}
